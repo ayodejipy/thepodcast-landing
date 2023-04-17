@@ -1,0 +1,25 @@
+@mixin container-fluid($paddingLeft, $paddingRight) {
+	max-width: 100%;
+	margin: 0 auto;
+	padding-left: $paddingLeft;
+	padding-right: $paddingRight;
+}
+
+@mixin grid {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+@mixin cell {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+@mixin text-sm {
+	font-size: 0.75rem;
+}
+
+@mixin cell {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
