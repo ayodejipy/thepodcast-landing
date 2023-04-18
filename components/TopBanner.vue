@@ -9,7 +9,7 @@
 
             <div class="show-categories">
                 <ul>
-                    <li v-for="category in categories" class="category">
+                    <li v-for="category in categories" :key="category" class="category">
                         <a :href="'#' + category" class="nav-link">{{ category }}</a>
                     </li>
                 </ul>
@@ -19,7 +19,14 @@
 </template>
 
 <script lang="ts" setup>
-const categories = ref<string[]>(["hobbies", "passion", "slice of life", "casual talk", "business", "activity"]);
+const categories = ref<string[]>([
+    'hobbies',
+    'passion',
+    'slice of life',
+    'casual talk',
+    'business',
+    'activity',
+])
 </script>
 
 <style lang="scss" scoped>
@@ -36,14 +43,14 @@ section {
         align-items: center;
         justify-content: flex-end;
         padding-block-start: 3.236rem;
-		padding-block-end: 1.5rem;
+        padding-block-end: 1.5rem;
 
         .show-title {
             position: absolute;
             bottom: 0;
             left: 8%;
             width: 48rem;
-			// transform: translateY(0%);
+            // transform: translateY(0%);
             h1 {
                 font-size: 9.45rem;
                 line-height: 0.85em;

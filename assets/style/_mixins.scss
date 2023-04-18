@@ -1,31 +1,30 @@
 @mixin container-fluid($paddingLeft, $paddingRight) {
-	max-width: 100%;
-	margin: 0 auto;
-	padding-left: $paddingLeft;
-	padding-right: $paddingRight;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: $paddingLeft;
+    padding-right: $paddingRight;
 }
 
 @mixin spacer-y {
-	padding-top: min(50px, 5vw);
-	padding-bottom: min(50px, 5vw);
-
+    padding-top: min(50px, 5vw);
+    padding-bottom: min(50px, 5vw);
 }
 
 @mixin grid {
-	display: flex;
-	flex-wrap: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 @mixin cell {
-	flex: 0 0 50%;
-	max-width: 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 
 @mixin text-sm {
-	font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 
 @mixin cell {
-	flex: 0 0 50%;
-	max-width: 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
 }

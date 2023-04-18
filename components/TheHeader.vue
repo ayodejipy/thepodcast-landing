@@ -2,7 +2,7 @@
     <header class="main-header container-fluid">
         <!-- logo -->
         <PartialsLogoIcon />
-        
+
         <!-- nav -->
         <div class="header-menu">
             <nav class="navigation">
@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-const navigation = ref<string[]>([]);
+// const navigation = ref<string[]>([])
 </script>
 
 <style lang="scss" scoped>
@@ -56,7 +56,7 @@ const navigation = ref<string[]>([]);
                 margin: 0;
 
                 &::before {
-                    content: "";
+                    content: '';
                     position: absolute;
                     inset: 0 auto;
                     width: 0.0825rem;
@@ -72,7 +72,7 @@ const navigation = ref<string[]>([]);
                     a {
                         text-decoration: none;
                         text-transform: uppercase;
-						letter-spacing: 0.045rem;
+                        letter-spacing: 0.045rem;
                         font-weight: 500;
                         color: #2e2d2d;
                         @include text-sm;
@@ -92,7 +92,7 @@ const navigation = ref<string[]>([]);
             a {
                 text-decoration: none;
                 text-transform: uppercase;
-				letter-spacing: 0.045rem;
+                letter-spacing: 0.045rem;
                 font-weight: 500;
                 color: #2e2d2d;
                 @include text-sm;

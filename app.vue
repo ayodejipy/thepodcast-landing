@@ -1,4 +1,3 @@
-
 import NewReleases from './components/NewReleases.vue';
 
 <template>
@@ -16,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    font: 1.4rem/1.6 "Outfit", sans-serif;
+    font: 1.4rem/1.6 'Outfit', sans-serif;
     box-sizing: border-box;
 
     a {
