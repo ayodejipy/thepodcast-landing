@@ -1,7 +1,13 @@
+
+import NewReleases from './components/NewReleases.vue';
+
 <template>
     <div>
         <TheHeader />
         <TopBanner />
+        <NewReleases />
+        <TheNewsletter />
+        <TheFooter />
     </div>
 </template>
 

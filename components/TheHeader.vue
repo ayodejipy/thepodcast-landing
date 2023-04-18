@@ -1,10 +1,8 @@
 <template>
     <header class="main-header container-fluid">
         <!-- logo -->
-        <div class="logo">
-            <div class="icon">T</div>
-            <h5>thepodcastshow</h5>
-        </div>
+        <PartialsLogoIcon />
+        
         <!-- nav -->
         <div class="header-menu">
             <nav class="navigation">
@@ -17,9 +15,9 @@
             </nav>
 
             <!-- action -->
-            <div class="actions">
-                <a href="#" class="nav-link">login</a>
-                <a href="#" class="nav-link">signup</a>
+            <div class="actions" role="click actions">
+                <a href="#" class="nav-link" aria-label="login">login</a>
+                <a href="#" class="nav-link" aria-label="signup">signup</a>
             </div>
         </div>
     </header>
@@ -39,28 +37,6 @@ const navigation = ref<string[]>([]);
     align-items: center;
     height: 2.6rem;
     padding: 1.2rem 0;
-
-    .logo {
-        @include grid;
-        align-items: center;
-        gap: 0.6rem;
-        .icon {
-            @extend .logo;
-            justify-content: center;
-            height: 1.8rem;
-            width: 1.8rem;
-            font-size: 1rem;
-            background: $primary;
-            color: $white;
-            border-radius: 50%;
-        }
-
-        h5 {
-            text-transform: uppercase;
-            color: #2e2d2d;
-            @include text-sm;
-        }
-    }
 
     .header-menu {
         @include grid;
