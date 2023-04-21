@@ -51,14 +51,14 @@ footer {
         flex-wrap: wrap;
 
         .col {
-            flex: 0 0 18%;
+            flex: 0 0 22.33%;
             // outline: 1px solid red;
 
             &:last-child {
-                flex: 1 1 18%;
+                flex: 1 1 30.33%;
                 @include grid;
-                align-items: flex-end;
-                justify-content: flex-end;
+                // align-items: flex-end;
+                // justify-content: flex-end;
             }
 
             .address {
@@ -90,6 +90,64 @@ footer {
             :deep(.logo) {
                 h5 {
                     color: $white;
+                }
+            }
+        }
+    }
+
+    @include mediaQuery('lg') {
+        position: relative;
+        @include spacer-y;
+        background: $black;
+        color: $white;
+        padding-block-start: min(14rem, 6vw);
+        margin-block-start: 10rem;
+
+        .footer-links {
+            @include grid;
+            flex-wrap: wrap;
+
+            .col {
+                flex: 0 0 22.33%;
+                // outline: 1px solid red;
+
+                &:last-child {
+                    flex: 1 1 30.33%;
+                    @include grid;
+                    // align-items: flex-end;
+                    // justify-content: flex-end;
+                }
+
+                .address {
+                    color: #dad7d7;
+                    // font-size: 1.25rem;
+                    margin-block: 0;
+                }
+
+                a {
+                    text-decoration: none;
+                    text-transform: lowercase;
+                    color: #dad7d7;
+                    font-size: 1.125rem;
+
+                    &:hover {
+                        color: $gray-dark-1;
+                    }
+                }
+
+                .links {
+                    li {
+                        a {
+                            @extend a;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+
+                :deep(.logo) {
+                    h5 {
+                        color: $white;
+                    }
                 }
             }
         }

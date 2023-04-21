@@ -1,5 +1,3 @@
-import NewReleases from './components/NewReleases.vue';
-
 <template>
     <div>
         <TheHeader />
@@ -17,18 +15,22 @@ body {
     scroll-behavior: smooth;
     font: 1.4rem/1.6 'Outfit', sans-serif;
     box-sizing: border-box;
+}
 
-    a {
-        text-decoration: none;
-    }
+a {
+    text-decoration: none;
+}
 
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-    .container-fluid {
+.container-fluid {
+    @include container-fluid(0.5rem, 0.5rem);
+
+    @include mediaQuery('lg') {
         @include container-fluid(5rem, 5rem);
     }
 }

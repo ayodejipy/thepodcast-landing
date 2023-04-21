@@ -20,12 +20,12 @@
 
 <style lang="scss" scoped>
 .podcast {
-    flex: 1 0 23.33%;
-    max-width: 25%;
+    flex: 1 1 45%;
+    max-width: 50%;
 
     .podcast-img-cover {
         position: relative;
-        height: 30rem;
+        height: 10.5rem;
 
         img {
             width: 100%;
@@ -34,25 +34,51 @@
         }
         .podcast-time {
             position: absolute;
-            right: 0;
-            bottom: 0;
+            right: -1px;
+            bottom: -1px;
             background: $white;
-            width: 5rem;
+            width: 3.5rem;
             text-align: center;
+            font-size: $text-sm;
         }
     }
 
     .podcast-meta {
         h5 {
             font-weight: 400;
+            font-size: 1rem;
             line-height: 1.2;
             margin-block: 0.8rem;
         }
         p {
             color: #bebebe;
-            font-size: 1.2rem;
+            font-size: 0.85rem;
             text-transform: capitalize;
             margin-block: 0.65rem 0;
+        }
+    }
+
+    @include mediaQuery('lg') {
+        flex: 1 0 23.33%;
+        max-width: 25%;
+
+        .podcast-img-cover {
+            position: relative;
+            height: 30rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .podcast-time {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                background: $white;
+                width: 5rem;
+                text-align: center;
+            }
         }
     }
 }

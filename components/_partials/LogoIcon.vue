@@ -9,24 +9,48 @@
 
 <style lang="scss" scoped>
 .logo {
+    flex: 0 0 30%;
     @include grid;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.35rem;
     .icon {
         @extend .logo;
         justify-content: center;
         height: 1.8rem;
         width: 1.8rem;
-        font-size: 1rem;
+        font-size: 0.91rem;
         background: $primary;
         color: $white;
         border-radius: 50%;
+        clip-path: circle(40%);
     }
 
     h5 {
         text-transform: uppercase;
         color: #2e2d2d;
         @include text-sm;
+    }
+
+    @include mediaQuery('lg') {
+        @include grid;
+        align-items: center;
+        .icon {
+            flex: 0 0 10%;
+            max-width: 5rem;
+            height: 1.8rem;
+            width: 1.8rem;
+            font-size: 1rem;
+            background: $primary;
+            color: $white;
+            border-radius: 50%;
+            clip-path: circle(40%);
+        }
+
+        h5 {
+            text-transform: uppercase;
+            color: #2e2d2d;
+            @include text-sm;
+        }
     }
 }
 </style>

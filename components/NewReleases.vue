@@ -45,17 +45,18 @@ section {
         h2 {
             text-transform: uppercase;
             font-weight: 800;
-            font-size: 2.345rem;
+            font-size: 1.545rem;
 
             &::before {
                 content: attr(data-beforecontent);
-                font-size: 7.13rem;
+                font-size: 4.13rem;
                 color: #e9e9e9;
                 position: absolute;
                 inset-inline: 0;
-                top: -25%;
+                top: -50%;
                 left: -5.8%;
                 z-index: -1;
+                transform: translateY(25%);
             }
         }
 
@@ -63,6 +64,7 @@ section {
             @include grid;
             align-items: center;
             gap: 0.75rem;
+            display: none;
 
             a {
                 text-transform: capitalize;
@@ -86,6 +88,55 @@ section {
         align-items: center;
         gap: 1.75rem;
         padding-top: 2rem;
+    }
+
+    @include mediaQuery('lg') {
+        position: relative;
+        @include spacer-y;
+        .block-heading {
+            @include grid;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+
+            h2 {
+                text-transform: uppercase;
+                font-weight: 800;
+                font-size: 2.345rem;
+
+                &::before {
+                    content: attr(data-beforecontent);
+                    font-size: 7.13rem;
+                    color: #e9e9e9;
+                    position: absolute;
+                    inset-inline: 0;
+                    top: -50%;
+                    left: -5.8%;
+                    z-index: -1;
+                    transform: translateY(16%);
+                }
+            }
+
+            .view-all-link {
+                @include grid;
+                align-items: center;
+                gap: 0.75rem;
+
+                a {
+                    text-transform: capitalize;
+                    color: $black;
+
+                    &:hover .arrow-right {
+                        transform: translateX(50%);
+                    }
+                }
+
+                .arrow-right {
+                    width: 1.365rem;
+                    transition: all 2ms ease-out;
+                }
+            }
+        }
     }
 }
 </style>

@@ -1,4 +1,4 @@
-@import '_mixins';
+@forward 'mixins'; // using * so as to not use namesapce while using mixins
 
 $primary: #49240f;
 $secondary: #e4a79d;
@@ -8,3 +8,6 @@ $black: #000000;
 $white: #ffffff;
 $gray: #f2f2f2;
 $gray-dark-1: #201f1f;
+
+// sizes
+$text-sm: 0.75rem;

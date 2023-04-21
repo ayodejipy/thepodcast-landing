@@ -3,6 +3,16 @@
         <!-- logo -->
         <PartialsLogoIcon />
 
+        <!-- toggle button -->
+        <button
+            type="button"
+            class="toggle-menu"
+            aria-label="hamburger menu"
+            aria-describedby="open menu"
+        >
+            Menu
+        </button>
+
         <!-- nav -->
         <div class="header-menu">
             <nav class="navigation">
@@ -30,17 +40,20 @@
 <style lang="scss" scoped>
 .main-header {
     &.container-fluid {
-        @include container-fluid(5rem, 5rem);
+        background: greenyellow;
     }
 
     @include grid;
     align-items: center;
-    height: 2.6rem;
-    padding: 1.2rem 0;
+    justify-content: space-between;
+
+    .toggle-menu {
+        flex: 0 0 25%;
+        display: none;
+    }
 
     .header-menu {
         @include grid;
-        width: 100%;
         align-items: center;
         justify-content: space-between;
 
@@ -102,6 +115,17 @@
                 }
             }
         }
+    }
+
+    @include mediaQuery('lg') {
+        &.container-fluid {
+            background: goldenrod;
+        }
+
+        @include grid;
+        align-items: center;
+        height: 2.6rem;
+        padding-block: 1.2rem;
     }
 }
 </style>

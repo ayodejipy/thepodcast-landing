@@ -1,3 +1,6 @@
+@use 'media-query' as screens;
+
+
 @mixin container-fluid($paddingLeft, $paddingRight) {
     max-width: 100%;
     margin: 0 auto;
@@ -6,8 +9,8 @@
 }
 
 @mixin spacer-y {
-    padding-top: min(50px, 5vw);
-    padding-bottom: min(50px, 5vw);
+    padding-top: min(6.5rem, 20vw);
+    padding-bottom: min(6.5rem, 20vw);
 }
 
 @mixin grid {
@@ -27,4 +30,14 @@
 @mixin cell {
     flex: 0 0 50%;
     max-width: 50%;
+}
+
+
+// media query
+@mixin mediaQuery($screen) {
+	$size: map-get(screens.$breakpoints, $screen);
+
+	@media only screen and (min-width: $size) {
+		@content;
+	}
 }
