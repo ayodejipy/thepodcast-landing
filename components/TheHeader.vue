@@ -49,11 +49,11 @@
 
     .toggle-menu {
         flex: 0 0 25%;
-        display: none;
     }
 
     .header-menu {
-        @include grid;
+        display: none;
+        // @include grid;
         align-items: center;
         justify-content: space-between;
 
@@ -64,9 +64,6 @@
             ul {
                 @include grid;
                 position: relative;
-                list-style: none;
-                padding: 0;
-                margin: 0;
 
                 &::before {
                     content: '';
@@ -80,9 +77,8 @@
                 }
 
                 li {
-                    padding: 0.25rem 1.75rem;
-
                     a {
+                        padding: 0.25rem 1.75rem;
                         text-decoration: none;
                         text-transform: uppercase;
                         letter-spacing: 0.045rem;
@@ -124,8 +120,78 @@
 
         @include grid;
         align-items: center;
+        justify-content: flex-start;
         height: 2.6rem;
         padding-block: 1.2rem;
+
+        .toggle-menu {
+            display: none;
+        }
+
+        .header-menu {
+            flex-grow: 1;
+            @include grid;
+            align-items: center;
+            justify-content: space-between;
+
+            .navigation {
+                @include grid;
+                align-items: center;
+                margin-left: 1.8rem;
+
+                ul {
+                    @include grid;
+                    align-items: center;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        inset: 0 auto;
+                        width: 0.0825rem;
+                        height: 1.45rem;
+                        background: #d3d3d3;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    li {
+                        display: inline-flex;
+                        a {
+                            padding: 0.25rem 1.75rem;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            letter-spacing: 0.045rem;
+                            font-weight: 500;
+                            color: #2e2d2d;
+                            @include text-sm;
+
+                            &:hover {
+                                color: $gray-dark-1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .actions {
+                @include grid;
+                gap: 1.75rem;
+
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    letter-spacing: 0.045rem;
+                    font-weight: 500;
+                    color: #2e2d2d;
+                    @include text-sm;
+
+                    &:hover {
+                        color: $gray-dark-1;
+                    }
+                }
+            }
+        }
     }
 }
 </style>

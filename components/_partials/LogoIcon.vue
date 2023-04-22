@@ -32,13 +32,13 @@
     }
 
     @include mediaQuery('lg') {
+        flex: 0 1 auto;
         @include grid;
         align-items: center;
         .icon {
-            flex: 0 0 10%;
-            max-width: 5rem;
-            height: 1.8rem;
-            width: 1.8rem;
+            max-width: 3rem;
+            height: 2.25rem; // 1.8rem before
+            width: 2.25rem; // 1.8rem before;
             font-size: 1rem;
             background: $primary;
             color: $white;
