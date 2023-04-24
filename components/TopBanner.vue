@@ -41,6 +41,27 @@ section {
         width: 100%;
         height: 20rem;
         background: #987234;
+        background: linear-gradient(
+                rgba(255, 182, 10, 0.7),
+                rgba(203, 139, 13, 0.5),
+                rgba(200, 136, 13, 0.5)
+            ),
+            url('https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80')
+                center center no-repeat;
+        background-size: cover;
+        // animation: watefall 2s ease infinite;
+
+        @keyframes watefall {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
     }
 
     .pdcast-summary {
@@ -53,8 +74,10 @@ section {
 
         .show-title {
             position: absolute;
-            // top: 37.65%;
+            bottom: 0;
             left: 4.6%;
+            width: auto;
+            transform: translateY(-70%);
             h1 {
                 font-size: 4.35rem;
                 line-height: 0.85em;
@@ -110,7 +133,7 @@ section {
                 bottom: 0;
                 left: 8%;
                 width: 48rem;
-                // transform: translateY(0%);
+                transform: translateY(0%);
                 h1 {
                     font-size: 9.45rem;
                     line-height: 0.85em;

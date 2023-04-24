@@ -49,12 +49,31 @@ section {
         }
         .subscribe {
             button {
+                position: relative;
                 border: 0;
                 color: $black;
                 font-weight: 600;
                 background: #f3f1f1;
                 padding-inline: min(2.35rem, 5vw);
                 padding-block: min(1rem, 5vw);
+                box-shadow: inset 0 0 0 0 $secondary;
+                // transition: all 0.6ms ease-out;
+                -webkit-transition: ease-out 0.4s;
+                -moz-transition: ease-out 0.4s;
+                transition: ease-out 0.4s;
+
+                &:hover {
+                    box-shadow: inset 230px 0 0 $secondary;
+                }
+            }
+
+            @keyframes slide-right {
+                0% {
+                    background: #f3f1f1;
+                }
+                100% {
+                    background: #f3f1f1;
+                }
             }
         }
     }

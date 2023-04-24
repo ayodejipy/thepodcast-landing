@@ -78,6 +78,16 @@
                 background: $white;
                 width: 5rem;
                 text-align: center;
+                font-size: 1rem;
+            }
+        }
+
+        .podcast-meta {
+            h5 {
+                font-size: 1.25rem;
+            }
+            p {
+                font-size: 1rem;
             }
         }
     }

@@ -1,13 +1,13 @@
 <template>
     <footer class="container-fluid">
         <div class="footer-links" role="links">
-            <div class="col" role="address" aria-label="office address">
+            <div class="col" role="address" aria-label="office address" data-type="address">
                 <p class="address" aria-label="address">
                     Ollenhauer Str. 28 Stuttgart Nord, Baden-Württemberg Germany
                 </p>
-                <a href="#" aria-label="contact email">hello@thepodcastshow</a>
+                <a href="#" aria-label="contact email">Email: hello@thepodcastshow</a>
             </div>
-            <div class="col" role="pageLinks">
+            <div class="col" role="pageLinks" data-type="pageLinks">
                 <ul class="links" aria-label="internal links">
                     <li><a href="#" class="nav-link">Work</a></li>
                     <li><a href="#" class="nav-link">studio</a></li>
@@ -15,7 +15,7 @@
                     <li><a href="#" class="nav-link">contact</a></li>
                 </ul>
             </div>
-            <div class="col" role="socialLinks">
+            <div class="col" role="socialLinks" data-type="socialLinks">
                 <ul class="links" aria-label="internal links">
                     <li><a href="#" class="nav-link">apple podcasts</a></li>
                     <li><a href="#" class="nav-link">spotify</a></li>
@@ -44,26 +44,51 @@ footer {
     background: $black;
     color: $white;
     padding-block-start: min(14rem, 6vw);
-    margin-block-start: 20rem;
+    padding-inline: 1.2rem;
+    margin-block-start: 13.33rem;
+
+    // &.container-fluid {
+    //     @include container-fluid(1.2rem, 1.2rem);
+    //     // margin-block: inherit;
+    // }
+
+    &::before {
+        content: '';
+        background: inherit;
+        position: absolute;
+        top: -16.65%;
+        inset-inline: 0;
+        height: 4rem;
+        clip-path: polygon(0 83%, 100% 40%, 100% 100%, 0 100%);
+    }
 
     .footer-links {
         @include grid;
         flex-wrap: wrap;
 
         .col {
-            flex: 0 0 22.33%;
-            // outline: 1px solid red;
+            order: 2;
+            flex: 0 0 50%;
+            margin-block: 0.65rem;
+            font-size: 1.25rem;
+            line-height: 1.6;
 
+            &:first-child {
+                order: 3;
+                flex: 1 1 100%;
+            }
             &:last-child {
-                flex: 1 1 30.33%;
+                order: 1;
+                flex: 1 1 100%;
                 @include grid;
-                // align-items: flex-end;
-                // justify-content: flex-end;
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin-left: -0.65rem;
             }
 
             .address {
                 color: #dad7d7;
-                // font-size: 1.25rem;
+                font-size: 1.25rem;
                 margin-block: 0;
             }
 
@@ -71,7 +96,7 @@ footer {
                 text-decoration: none;
                 text-transform: lowercase;
                 color: #dad7d7;
-                font-size: 1.125rem;
+                font-size: 1.12rem;
 
                 &:hover {
                     color: $gray-dark-1;
@@ -96,32 +121,36 @@ footer {
     }
 
     @include mediaQuery('lg') {
-        position: relative;
-        @include spacer-y;
-        background: $black;
-        color: $white;
-        padding-block-start: min(14rem, 6vw);
-        margin-block-start: 10rem;
+        padding-inline: 4.5rem;
+        margin-block-start: 15rem;
 
         .footer-links {
             @include grid;
             flex-wrap: wrap;
 
             .col {
+                order: 0;
                 flex: 0 0 22.33%;
-                // outline: 1px solid red;
+                margin-block: 0;
+
+                &:first-child {
+                    order: 0;
+                    flex: 0 0 22.33%;
+                }
 
                 &:last-child {
                     flex: 1 1 30.33%;
                     @include grid;
-                    // align-items: flex-end;
-                    // justify-content: flex-end;
+                    align-items: flex-end;
+                    justify-content: flex-end;
                 }
 
                 .address {
                     color: #dad7d7;
                     // font-size: 1.25rem;
                     margin-block: 0;
+                    word-wrap: break-word;
+                    width: 15.313rem;
                 }
 
                 a {
@@ -131,7 +160,7 @@ footer {
                     font-size: 1.125rem;
 
                     &:hover {
-                        color: $gray-dark-1;
+                        color: $secondary;
                     }
                 }
 
