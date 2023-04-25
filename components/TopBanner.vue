@@ -77,7 +77,7 @@ section {
             bottom: 0;
             left: 4.6%;
             width: auto;
-            transform: translateY(-70%);
+            transform: translateY(-112%);
             h1 {
                 font-size: 4.35rem;
                 line-height: 0.85em;

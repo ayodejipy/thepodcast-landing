@@ -10,8 +10,7 @@
             aria-label="hamburger menu"
             aria-describedby="open menu"
         >
-            Menu
-            
+            <nuxt-icon name="menu/close" />
         </button>
 
         <!-- nav -->
@@ -57,7 +56,32 @@
     justify-content: space-between;
 
     .toggle-menu {
-        flex: 0 0 25%;
+        flex: 0 0 15%;
+        border: none;
+        background: transparent;
+        z-index: 1002;
+
+        :deep(.nuxt-icon) {
+            svg {
+                width: 1.85rem;
+                height: 1.85rem;
+
+                // .line {
+                //     transition: 1s ease-in-out;
+                //     transform-origin: 38% 50%;
+                //     &.top {
+                //         transform: rotate(45deg);
+                //     }
+                //     &.bottom {
+                //         transform: rotate(-45deg);
+                //     }
+                // }
+            }
+
+            &:hover {
+                transform: translateX(-50%);
+            }
+        }
     }
 
     .header-menu {
@@ -185,7 +209,6 @@
             position: sticky;
             z-index: 1000;
             box-shadow: none;
-            
 
             .navigation {
                 @include grid;
