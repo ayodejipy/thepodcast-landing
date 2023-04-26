@@ -1,5 +1,5 @@
 <template>
-    <section id="new-releases" class="container-fluid">
+    <section id="new-releases" ref="podcastSection" class="container-fluid">
         <div class="block-heading" role="title">
             <h2 data-beforecontent="Release">New Release</h2>
 
@@ -30,15 +30,15 @@
 </template>
 
 <script lang="ts" setup>
+const podcastSection = ref<HTMLElement | null>(null)
 const { $gsap } = useNuxtApp()
 
 // set animation timeline
 const timeline = $gsap.timeline({
     defaults: { duration: 0.85, ease: 'power2.out' },
     scrollTrigger: {
-        trigger: '#new-releases',
-        start: '35% bottom',
-        markers: true,
+        trigger: podcastSection.value,
+        start: '30% bottom',
     },
 })
 

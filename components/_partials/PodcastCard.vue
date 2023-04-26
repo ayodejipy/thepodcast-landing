@@ -22,6 +22,7 @@
 .podcast {
     flex: 1 1 45%;
     max-width: 50%;
+    cursor: pointer;
 
     .podcast-img-cover {
         position: relative;
@@ -61,6 +62,11 @@
     @include mediaQuery('lg') {
         flex: 1 0 23.33%;
         max-width: 25%;
+        transition: 0.9s ease-out;
+
+        &:hover {
+            transform: scale(0.95);
+        }
 
         .podcast-img-cover {
             position: relative;

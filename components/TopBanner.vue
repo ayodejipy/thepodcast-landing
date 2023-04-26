@@ -76,9 +76,9 @@ section {
         .show-title {
             position: absolute;
             bottom: 0;
-            left: 4.6%;
+            left: 3.6%;
             width: auto;
-            transform: translateY(-112%);
+            transform: translateY(-85%);
             h1 {
                 position: relative;
                 font-size: 4.35rem;
@@ -93,19 +93,19 @@ section {
                     background: $black;
                     position: absolute;
                     inset: 0;
-                    animation: slide-left 1.5s 3s ease-out forwards;
+                    animation: slide-left 1.5s 2s ease-out forwards;
                 }
             }
 
             :deep(.nuxt-icon) {
                 svg {
-                    width: 19.56rem;
+                    width: 11.56rem;
                     height: auto;
-                    transform: translateY(30%);
+                    transform: translateY(20%);
                     // transition: 1.2s ease-out;
 
                     #overlay {
-                        animation: slide-left 1.5s 3s ease-out forwards;
+                        animation: slide-left 1.5s 2s ease-out forwards;
                     }
 
                     @keyframes slide-left {
@@ -141,7 +141,7 @@ section {
                         position: absolute;
                         inset: 0;
                         transform-origin: left;
-                        animation: reveal 1.2s 3s ease-out forwards;
+                        animation: reveal 1.2s 2s ease-out forwards;
                     }
 
                     a {
@@ -193,6 +193,28 @@ section {
                     font-weight: 800;
                     text-transform: uppercase;
                     margin-block: 0;
+                }
+
+                :deep(.nuxt-icon) {
+                    svg {
+                        width: 19.56rem;
+                        height: auto;
+                        transform: translateY(20%);
+                        // transition: 1.2s ease-out;
+
+                        #overlay {
+                            animation: slide-left 1.5s 2s ease-out forwards;
+                        }
+
+                        @keyframes slide-left {
+                            from {
+                                width: 100%;
+                            }
+                            to {
+                                width: 0%;
+                            }
+                        }
+                    }
                 }
             }
 
