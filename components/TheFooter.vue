@@ -76,6 +76,7 @@ footer {
             &:first-child {
                 order: 3;
                 flex: 1 1 100%;
+                padding-top: 3.5rem;
             }
             &:last-child {
                 order: 1;
@@ -143,6 +144,7 @@ footer {
                 &:first-child {
                     order: 0;
                     flex: 0 0 22.33%;
+                    padding-top: 0;
                 }
 
                 &:last-child {

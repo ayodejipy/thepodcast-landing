@@ -1,8 +1,10 @@
 <template>
-    <section id="newsletter" class="container-fluid">
+    <section ref="newsletter" class="bbb container-fluid">
         <div class="block-heading" role="title">
-            <h2>thepodcastshow newsletter</h2>
-            <p>Be the first to get updates about new episodes directly into your inbox.</p>
+            <h2 class="newletter-heading">thepodcastshow newsletter</h2>
+            <p class="newletter-desc">
+                Be the first to get updates about new episodes directly into your inbox.
+            </p>
 
             <div class="subscribe" role="subscribe-link">
                 <button aria-label="subscribe to newsletter">Subscribe to newsletter</button>
@@ -11,7 +13,24 @@
     </section>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const newsletter = ref<HTMLElement | null>(null)
+const { $gsap } = useNuxtApp()
+
+const timeline = $gsap.timeline({
+    defaults: { duration: 0.85, ease: 'power2.out' },
+    scrollTrigger: {
+        trigger: 'bbb',
+        start: '30% bottom',
+    },
+})
+
+onMounted(() => {
+    timeline.fromTo('.newletter-heading', { y: '-100%', opacity: 0 }, { y: 0, opacity: 1 })
+    timeline.fromTo('.newletter-desc', { y: '-50%', opacity: 0 }, { y: 0, opacity: 1 }, '<')
+    timeline.fromTo('.subscribe', { y: '-100%', opacity: 0 }, { y: 0, opacity: 1 })
+})
+</script>
 
 <style lang="scss" scoped>
 section {

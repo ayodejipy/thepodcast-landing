@@ -11,7 +11,9 @@
             <div class="show-categories">
                 <ul>
                     <li v-for="category in categories" :key="category" class="category">
-                        <a :href="'#' + category" class="nav-link">{{ category }}</a>
+                        <a :href="'#' + category" class="category-link" :aria-label="category">
+                            {{ category }}
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -76,6 +78,7 @@ section {
         .show-title {
             position: absolute;
             bottom: 0;
+            right: 2%;
             left: 3.6%;
             width: auto;
             transform: translateY(-85%);

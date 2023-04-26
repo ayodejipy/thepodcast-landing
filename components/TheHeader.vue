@@ -50,7 +50,7 @@ const open = ref<boolean>(false)
 // set animation timeline
 // $gsap.set('')
 const timeline = $gsap.timeline({
-    defaults: { duration: 0.85, ease: 'power2.out' },
+    defaults: { duration: 0.75, ease: 'power3.out' },
 })
 
 function toggleMenu() {
@@ -59,17 +59,26 @@ function toggleMenu() {
         $gsap.set('svg .line', { transformOrigin: '33% 38%' })
         timeline.fromTo('.top', { rotate: 0 }, { rotate: '45deg' })
         timeline.fromTo('.bottom', { rotate: 0 }, { rotate: '-45deg' }, '<')
-        timeline.fromTo('.header-menu', { x: '100%', opacity: 0 }, { x: 0, opacity: 1 })
+        timeline.fromTo('.header-menu', { x: '100%', opacity: 0 }, { x: 0, opacity: 1 }, '<')
         timeline.fromTo(
-            '.menu-items li',
+            '.nav-link',
             { y: '100%', opacity: 0 },
-            { y: 0, opacity: 1, stagger: 0.4 }
+            { y: 0, opacity: 1, stagger: 0.4 },
+            '<'
         )
-        timeline.fromTo('html', { '--scale-x': 0 }, { '--scale-x': 1 }, '<')
-        timeline.fromTo('.contact-info', { opacity: 0, y: '-100%' }, { opacity: 1, y: 0 }, '<1.2')
+        timeline.fromTo('html', { '--scale-x': 0 }, { '--scale-x': 1 }, 0.6)
+        timeline.fromTo('.contact-info', { opacity: 0, y: '-100%' }, { opacity: 1, y: 0 }, '<')
     } else {
-        timeline.to('.header-menu', { x: '100%' })
-        timeline.to('.top', { rotate: 0, duration: 0.15 })
+        timeline.fromTo('.contact-info', { y: 0, opacity: 1 }, { y: '-100%', opacity: 0 })
+        timeline.fromTo(
+            '.nav-link',
+            { y: 0, opacity: 1 },
+            { y: '100%', opacity: 0, stagger: 0.4 },
+            '<'
+        )
+        timeline.fromTo('html', { '--scale-x': 1 }, { '--scale-x': 0 }, '<0.45')
+        timeline.to('.header-menu', { x: '100%' }, '>')
+        timeline.to('.top', { rotate: 0 }, '<')
         timeline.to('.bottom', { rotate: 0 }, '<')
     }
 }
@@ -92,16 +101,16 @@ function toggleMenu() {
                 width: 1.65rem;
                 height: 1.65rem;
 
-                .line {
-                    transition: 1s ease-in-out;
-                    // transform-origin: 38% 50%;
-                    // &.top {
-                    //     transform: rotate(45deg);
-                    // }
-                    // &.bottom {
-                    //     transform: rotate(-45deg);
-                    // }
-                }
+                // .line {
+                //     transition: 1s ease-in-out;
+                //     transform-origin: 38% 50%;
+                //     &.top {
+                //         transform: rotate(45deg);
+                //     }
+                //     &.bottom {
+                //         transform: rotate(-45deg);
+                //     }
+                // }
             }
 
             &:hover {
