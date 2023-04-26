@@ -56,7 +56,7 @@ footer {
         content: '';
         background: inherit;
         position: absolute;
-        top: -16.65%;
+        top: -12.65%;
         inset-inline: 0;
         height: 4rem;
         clip-path: polygon(0 83%, 100% 40%, 100% 100%, 0 100%);
@@ -123,6 +123,13 @@ footer {
     @include mediaQuery('lg') {
         padding-inline: 4.5rem;
         margin-block-start: 15rem;
+
+        &::before {
+            content: '';
+            background: inherit;
+            position: absolute;
+            top: -16.65%;
+        }
 
         .footer-links {
             @include grid;

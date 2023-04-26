@@ -4,6 +4,7 @@
 
         <div class="pdcast-summary">
             <div class="show-title">
+                <nuxt-icon ref="iconSVG" name="menu/name" />
                 <h1>The Podcast Show</h1>
             </div>
 
@@ -79,12 +80,43 @@ section {
             width: auto;
             transform: translateY(-112%);
             h1 {
+                position: relative;
                 font-size: 4.35rem;
                 line-height: 0.85em;
                 letter-spacing: -0.25rem;
                 font-weight: 800;
                 text-transform: uppercase;
                 margin-block: 0;
+
+                &::before {
+                    content: '';
+                    background: $black;
+                    position: absolute;
+                    inset: 0;
+                    animation: slide-left 1.5s 3s ease-out forwards;
+                }
+            }
+
+            :deep(.nuxt-icon) {
+                svg {
+                    width: 19.56rem;
+                    height: auto;
+                    transform: translateY(30%);
+                    // transition: 1.2s ease-out;
+
+                    #overlay {
+                        animation: slide-left 1.5s 3s ease-out forwards;
+                    }
+
+                    @keyframes slide-left {
+                        from {
+                            width: 100%;
+                        }
+                        to {
+                            width: 0%;
+                        }
+                    }
+                }
             }
         }
 
@@ -99,13 +131,33 @@ section {
                 flex-wrap: wrap;
                 align-items: center;
                 .category {
+                    position: relative;
                     @include cell;
+                    transform-origin: right;
+
+                    &::before {
+                        content: '';
+                        background: $white;
+                        position: absolute;
+                        inset: 0;
+                        transform-origin: left;
+                        animation: reveal 1.2s 3s ease-out forwards;
+                    }
 
                     a {
                         color: $black;
                         font-size: 1.465rem;
                         text-transform: uppercase;
                         font-weight: 700;
+                    }
+
+                    @keyframes reveal {
+                        from {
+                            transform: scaleX(1);
+                        }
+                        to {
+                            transform: scaleX(0);
+                        }
                     }
                 }
             }

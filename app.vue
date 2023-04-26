@@ -9,6 +9,12 @@
 </template>
 
 <style lang="scss">
+:root {
+    --color: green;
+    --scale-x: 0;
+    --left: 0;
+}
+
 body {
     margin: 0;
     padding: 0;

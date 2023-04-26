@@ -9,14 +9,15 @@
             class="toggle-menu"
             aria-label="hamburger menu"
             aria-describedby="open menu"
+            @click="toggleMenu"
         >
-            <nuxt-icon name="menu/close" />
+            <nuxt-icon ref="iconSVG" name="menu/close" />
         </button>
 
         <!-- nav -->
         <div class="header-menu">
             <nav class="navigation">
-                <ul>
+                <ul class="menu-items">
                     <li><a href="#" class="nav-link">browse category</a></li>
                     <li><a href="#" class="nav-link">about</a></li>
                     <li><a href="#" class="nav-link">pricing</a></li>
@@ -42,15 +43,40 @@
 </template>
 
 <script lang="ts" setup>
-// const navigation = ref<string[]>([])
+const { $gsap } = useNuxtApp()
+const iconSVG = ref<HTMLOrSVGElement | null>(null)
+const open = ref<boolean>(false)
+
+// set animation timeline
+// $gsap.set('')
+const timeline = $gsap.timeline({
+    defaults: { duration: 0.85, ease: 'power2.out' },
+})
+
+function toggleMenu() {
+    open.value = !open.value
+    if (open.value) {
+        $gsap.set('svg .line', { transformOrigin: '33% 38%' })
+        timeline.fromTo('.top', { rotate: 0 }, { rotate: '45deg' })
+        timeline.fromTo('.bottom', { rotate: 0 }, { rotate: '-45deg' }, '<')
+        timeline.fromTo('.header-menu', { x: '100%', opacity: 0 }, { x: 0, opacity: 1 })
+        timeline.fromTo(
+            '.menu-items li',
+            { y: '100%', opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.4 }
+        )
+        timeline.fromTo('html', { '--scale-x': 0 }, { '--scale-x': 1 }, '<')
+        timeline.fromTo('.contact-info', { opacity: 0, y: '-100%' }, { opacity: 1, y: 0 }, '<1.2')
+    } else {
+        timeline.to('.header-menu', { x: '100%' })
+        timeline.to('.top', { rotate: 0, duration: 0.15 })
+        timeline.to('.bottom', { rotate: 0 }, '<')
+    }
+}
 </script>
 
 <style lang="scss" scoped>
 .main-header {
-    // &.container-fluid {
-    //     background: greenyellow;
-    // }
-
     @include grid;
     align-items: center;
     justify-content: space-between;
@@ -63,19 +89,19 @@
 
         :deep(.nuxt-icon) {
             svg {
-                width: 1.85rem;
-                height: 1.85rem;
+                width: 1.65rem;
+                height: 1.65rem;
 
-                // .line {
-                //     transition: 1s ease-in-out;
-                //     transform-origin: 38% 50%;
-                //     &.top {
-                //         transform: rotate(45deg);
-                //     }
-                //     &.bottom {
-                //         transform: rotate(-45deg);
-                //     }
-                // }
+                .line {
+                    transition: 1s ease-in-out;
+                    // transform-origin: 38% 50%;
+                    // &.top {
+                    //     transform: rotate(45deg);
+                    // }
+                    // &.bottom {
+                    //     transform: rotate(-45deg);
+                    // }
+                }
             }
 
             &:hover {
@@ -102,12 +128,24 @@
         transform: translateX(100%);
 
         .navigation {
+            position: relative;
             width: 100%;
             display: block;
             padding-block-start: 6rem;
             padding-block-end: 2rem;
             margin-left: 0;
-            border-bottom: 1px solid $gray-dark-2;
+            transform-origin: 'left center';
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 0.045rem;
+                background: #911c1c;
+                transform-origin: left;
+                transform: scaleX(var(--scale-x));
+            }
 
             ul {
                 @include grid;
@@ -142,7 +180,6 @@
             @include grid;
             flex-direction: column;
             padding-block-start: 1.5rem;
-            // gap: 1.75rem;
 
             a {
                 padding: 0.25rem 1.75rem;
@@ -209,13 +246,13 @@
             position: sticky;
             z-index: 1000;
             box-shadow: none;
+            transform: translateX(0);
 
             .navigation {
                 @include grid;
                 align-items: center;
                 padding-block: 0;
                 margin-left: 1.8rem;
-                border-bottom: none;
 
                 ul {
                     @include grid;

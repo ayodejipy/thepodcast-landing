@@ -29,7 +29,23 @@
     </section>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { $gsap } = useNuxtApp()
+
+// set animation timeline
+const timeline = $gsap.timeline({
+    defaults: { duration: 0.85, ease: 'power2.out' },
+    scrollTrigger: {
+        trigger: '#new-releases',
+        start: '35% bottom',
+        markers: true,
+    },
+})
+
+onMounted(() => {
+    timeline.fromTo('html', { '--left': 0 }, { '--left': '-5.8%' })
+})
+</script>
 
 <style lang="scss" scoped>
 section {
@@ -111,7 +127,7 @@ section {
                     position: absolute;
                     inset-inline: 0;
                     top: -50%;
-                    left: -5.8%;
+                    left: var(--left); // -5.8%
                     z-index: -1;
                     transform: translateY(16%);
                 }
