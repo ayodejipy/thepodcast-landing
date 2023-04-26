@@ -285,8 +285,30 @@ function toggleMenu() {
 
                     li {
                         display: inline-flex;
+                        position: relative;
+                        margin-inline: 1.5rem;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 0.05rem;
+                            transform: scaleX(0);
+                            background: #d3d3d3;
+                            transform-origin: bottom right;
+                            transition: transform 0.5s ease-out;
+                        }
+                        &:hover {
+                            &::before {
+                                transform: scaleX(1);
+                                transform-origin: bottom left;
+                            }
+                        }
                         a {
-                            padding: 0.25rem 1.75rem;
+                            position: relative;
+                            padding: 0.25rem 0;
                             text-decoration: none;
                             text-transform: uppercase;
                             letter-spacing: 0.045rem;
