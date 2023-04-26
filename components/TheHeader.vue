@@ -100,6 +100,7 @@ function toggleMenu() {
             svg {
                 width: 1.65rem;
                 height: 1.65rem;
+                color: $black;
 
                 // .line {
                 //     transition: 1s ease-in-out;

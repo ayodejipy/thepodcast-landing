@@ -1,4 +1,4 @@
-<svg width="400" height="200" viewBox="0 0 100 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="400" height="200" viewBox="0 0 100 33" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path class="line top" d="M2.5 7.5H97.5V2.5H2.5V7.5Z" stroke="black" stroke-width="5"/>
 <path class="line bottom" d="M2.5 30.5H97.5V25.5H2.5V30.5Z" stroke="black" stroke-width="5"/>
 </svg>
