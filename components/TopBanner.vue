@@ -5,7 +5,11 @@
         <div class="pdcast-summary">
             <div class="show-title">
                 <nuxt-icon ref="iconSVG" name="menu/name" />
-                <h1>The Podcast Show</h1>
+                <h1>
+                    <span class="the">The</span>
+                    <span class="podcast">Podcast</span>
+                    <span class="show">Show</span>
+                </h1>
             </div>
 
             <div class="show-categories">
@@ -91,12 +95,43 @@ section {
                 text-transform: uppercase;
                 margin-block: 0;
 
-                &::before {
-                    content: '';
-                    background: $black;
-                    position: absolute;
-                    inset: 0;
-                    animation: slide-left 1.5s 2s ease-out forwards;
+                span {
+                    &.the,
+                    &.podcast,
+                    &.show {
+                        display: inline-block;
+                        position: relative;
+                    }
+                    &.the {
+                        &::after {
+                            content: '';
+                            background: $black;
+                            position: absolute;
+                            inset: 0;
+                            transform: translateX(0.13rem);
+                            animation: slide-left 1.5s 2s ease-out forwards;
+                        }
+                    }
+                    &.podcast {
+                        &::after {
+                            content: '';
+                            background: $black;
+                            position: absolute;
+                            inset: 0;
+                            transform: translateX(0.13rem);
+                            animation: slide-left 1.5s 2s ease-out forwards;
+                        }
+                    }
+                    &.show {
+                        &::after {
+                            content: '';
+                            background: $black;
+                            position: absolute;
+                            inset: 0;
+                            transform: translateX(0.13rem);
+                            animation: slide-left 1.5s 2s ease-out forwards;
+                        }
+                    }
                 }
             }
 
