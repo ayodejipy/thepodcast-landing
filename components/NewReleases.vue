@@ -24,14 +24,52 @@
         </div>
 
         <div class="podcasts-list" role="list-recent-podcasts">
-            <PartialsPodcastCard v-for="n in 4" :key="n" />
+            <PartialsPodcastCard
+                v-for="podcast in latestPodcast"
+                :key="podcast.title"
+                :podcast="podcast"
+            />
         </div>
     </section>
 </template>
 
 <script lang="ts" setup>
-const podcastSection = ref<HTMLElement | null>(null)
+import { PodcastLists } from '~/utils/types'
+
 const { $gsap } = useNuxtApp()
+const podcastSection = ref<HTMLElement | null>(null)
+const latestPodcast = ref<PodcastLists[]>([
+    {
+        title: 'The Intersection of Lifestyle and Business: Balancing Work and Play',
+        author: 'Jonathan Doe',
+        time: '24:05',
+        cover_image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+    },
+    {
+        title: 'How I really enjoy surfing and life on the beach',
+        author: 'Jonathan Doe',
+        time: '24:05',
+        cover_image: 'https://images.unsplash.com/photo-1610964029130-fed216b99544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80',
+    },
+    {
+        title: 'How to Turn Life Changes into Opportunities for Growth',
+        author: 'Jonathan Doe',
+        time: '24:05',
+        cover_image: 'https://images.unsplash.com/photo-1458014854819-1a40aa70211c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+    },
+    {
+        title: 'How Pursuing Your Passions Can Benefit Your Life',
+        author: 'Jonathan Doe',
+        time: '24:05',
+        cover_image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+    },
+    // {
+    //     title: 'Building a Business Around Your Passion: Success Stories and Strategies',
+    //     author: 'Jonathan Doe',
+    //     time: '24:05',
+    //     cover_image: '',
+    // },
+])
 
 // set animation timeline
 const timeline = $gsap.timeline({

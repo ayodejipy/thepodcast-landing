@@ -1,22 +1,22 @@
 <template>
     <div class="podcast" role="contentwrapper" aria-label="single podcast container">
         <div class="podcast-img-cover" role="imgwrapper">
-            <img
-                src="https://images.unsplash.com/photo-1681634492508-969ed36a85a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                alt="Old church build"
-                role="img"
-            />
-            <div class="podcast-time" role="podcast time">32:58</div>
+            <img :src="podcast.cover_image" :alt="podcast.title" role="img" />
+            <div class="podcast-time" role="podcast time">{{ podcast.time }}</div>
         </div>
 
         <div class="podcast-meta" role="podcast-info">
-            <h5>How I really enjoy surfing and life on the beach</h5>
-            <p arial="author">Jonathan wise</p>
+            <h5>{{ podcast.title }}</h5>
+            <p arial="author">{{ podcast.author }}</p>
         </div>
     </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { PodcastLists } from '~/utils/types'
+
+defineProps<{ podcast: PodcastLists }>()
+</script>
 
 <style lang="scss" scoped>
 .podcast {
