@@ -8,6 +8,14 @@
     </div>
 </template>
 
+<script lang="ts" setup>
+useHead({
+    titleTemplate: (titleChunk) => {
+        return titleChunk ? `${titleChunk} - Thepodcastshow` : 'Thepodcastshow'
+    },
+})
+</script>
+
 <style lang="scss">
 :root {
     --color: green;

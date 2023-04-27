@@ -23,6 +23,8 @@ defineProps<{ podcast: PodcastLists }>()
     flex: 1 1 45%;
     max-width: 50%;
     cursor: pointer;
+    @include grid;
+    flex-direction: column;
 
     .podcast-img-cover {
         position: relative;
@@ -45,6 +47,10 @@ defineProps<{ podcast: PodcastLists }>()
     }
 
     .podcast-meta {
+        @include grid;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
         h5 {
             font-weight: 400;
             font-size: 1rem;
